@@ -20,7 +20,13 @@ nav a:hover { color: #d63384; }
 .section { padding: 4rem 2rem; background: white; margin-bottom: 2rem; border-radius: 16px; animation: fadeInUp 0.8s ease-out both; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06); }
 .section h2 { font-size: 42px; font-weight: 800; margin-bottom: 3rem; text-align: center; color: #2c3e50; position: relative; display: inline-block; width: 100%; }
 .section h2::after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 100px; height: 4px; background: linear-gradient(135deg, #667eea 0%, #d63384 100%); border-radius: 2px; }
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  padding: 0 2rem;
+}
 .service-card { background: linear-gradient(135deg, #f5f7ff 0%, #fff5f8 100%); padding: 2rem; border-radius: 12px; text-align: center; transition: all 0.3s ease; border: 1px solid rgba(102, 126, 234, 0.1); animation: fadeInUp 0.8s ease-out both; }
 .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2); border-color: #d63384; }
 .service-icon { font-size: 48px; margin-bottom: 1rem; display: inline-block; animation: float 3s ease-in-out infinite; }
