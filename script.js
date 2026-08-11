@@ -1,6 +1,5 @@
 // Google Apps Script URL
-var scriptURL = 'https://script.google.com/macros/s/AKfycbwjJ0wuyAxZx5kbJSxBCLTBghQjiTzCc3gAa_-SH1jNBLNF4zSB2-p_hypgQ8YhiBhf/exec';
-
+var scriptURL = https://script.google.com/macros/s/AKfycbxZzL-aT0HmEK2_b3xuXg_72Q3MVda-AC_yb3Sh3vRkumtkyn2-nyvalwM4VweIbvUx/exec;
 // Form submission handler
 function handleSubmit(event) {
   event.preventDefault();
