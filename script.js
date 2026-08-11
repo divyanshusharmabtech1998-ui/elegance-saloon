@@ -1,12 +1,9 @@
-// Wait for Firebase to be ready
+// Google Apps Script URL
+var scriptURL = 'https://script.google.com/macros/s/AKfycbzSQRdCEvrtCK-PdOEbjyJjHImvwiiIARPrLzt7DG2lYBdW4kGXvvnuJD-ub9x0mEIK/exec';
+
+// Form submission handler
 function handleSubmit(event) {
   event.preventDefault();
-  
-  // Check if database is available
-  if (typeof database === 'undefined') {
-    alert('System is loading. Please try again in a moment.');
-    return;
-  }
   
   var form = event.target;
   var button = form.querySelector('.form-submit');
@@ -26,36 +23,39 @@ function handleSubmit(event) {
   button.textContent = 'Saving...';
   button.disabled = true;
   
-  var bookingData = {
-    name: name,
-    phone: phone,
-    email: email,
-    service: service,
-    date: date,
-    message: message,
-    timestamp: new Date().toLocaleString('en-IN'),
-    status: 'pending'
-  };
+  // Create FormData object
+  var formData = new FormData();
+  formData.append('name', name);
+  formData.append('phone', phone);
+  formData.append('email', email);
+  formData.append('service', service);
+  formData.append('date', date);
+  formData.append('message', message);
   
-  database.ref('bookings').push(bookingData, function(error) {
-    if (error) {
-      console.error('Firebase Error:', error);
-      alert('Error: ' + error.message);
+  // Send data to Google Sheet
+  fetch(scriptURL, {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => {
+    console.log('✅ Booking saved to Google Sheets');
+    button.textContent = '✓ Booking Confirmed!';
+    button.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+    
+    setTimeout(function() {
+      alert('Your booking has been saved!\n\nWe will contact you soon.\n\n📞 +91 98765 43210\n📧 hello@elegancesalon.com');
+      form.reset();
       button.textContent = 'Confirm Booking';
+      button.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
       button.disabled = false;
-    } else {
-      console.log('Booking saved successfully');
-      button.textContent = '✓ Booking Confirmed!';
-      button.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
-      
-      setTimeout(function() {
-        alert('Your booking has been saved!\n\nWe will contact you soon.\n\n+91 98765 43210');
-        form.reset();
-        button.textContent = 'Confirm Booking';
-        button.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-        button.disabled = false;
-      }, 1500);
-    }
+    }, 1500);
+  })
+  .catch(error => {
+    console.error('❌ Error:', error);
+    alert('Error: ' + error.message);
+    button.textContent = 'Confirm Booking';
+    button.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+    button.disabled = false;
   });
 }
 
@@ -92,4 +92,4 @@ window.addEventListener('scroll', function() {
   }
 });
 
-console.log('Script ready - waiting for Firebase');
+console.log('✅ Script loaded - Google Sheets integration ready');
