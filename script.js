@@ -2,9 +2,9 @@
 function handleSubmit(event) {
   event.preventDefault();
   
-  // Wait for database
+  // Check if database is available
   if (typeof database === 'undefined') {
-    alert('Loading... Please wait a moment and try again.');
+    alert('System is loading. Please try again in a moment.');
     return;
   }
   
@@ -39,10 +39,12 @@ function handleSubmit(event) {
   
   database.ref('bookings').push(bookingData, function(error) {
     if (error) {
+      console.error('Firebase Error:', error);
       alert('Error: ' + error.message);
       button.textContent = 'Confirm Booking';
       button.disabled = false;
     } else {
+      console.log('Booking saved successfully');
       button.textContent = '✓ Booking Confirmed!';
       button.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
       
@@ -57,19 +59,22 @@ function handleSubmit(event) {
   });
 }
 
-// Smooth scrolling
+// Smooth scrolling for navigation links
 var links = document.querySelectorAll('a[href^="#"]');
 for (var i = 0; i < links.length; i++) {
   links[i].addEventListener('click', function(e) {
     e.preventDefault();
     var target = document.querySelector(this.getAttribute('href'));
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      target.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
     }
   });
 }
 
-// Animations on load
+// Animations on page load
 window.addEventListener('load', function() {
   var sections = document.querySelectorAll('.section');
   for (var i = 0; i < sections.length; i++) {
@@ -79,7 +84,7 @@ window.addEventListener('load', function() {
   }
 });
 
-// Parallax
+// Parallax effect on scroll
 window.addEventListener('scroll', function() {
   var hero = document.querySelector('.hero');
   if (hero) {
@@ -87,4 +92,4 @@ window.addEventListener('scroll', function() {
   }
 });
 
-console.log('Script ready');
+console.log('Script ready - waiting for Firebase');
