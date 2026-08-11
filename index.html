@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elegance Salon - Premium Hair & Beauty</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <div class="logo">✂️ Elegance Salon</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <h1>Premium Hair & Beauty Care</h1>
+  <p>Experience luxury styling and treatments in our modern salon</p>
+  <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Book an Appointment</button>
+</section>
+
+<div class="container">
+  <section class="section" id="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">💇</div>
+        <h3>Haircut & Styling</h3>
+        <p>Professional cuts tailored to your unique style and face shape</p>
+        <div class="service-price">From ₹500</div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Hair Coloring</h3>
+        <p>Premium color treatments with professional-grade products</p>
+        <div class="service-price">From ₹800</div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">💆</div>
+        <h3>Spa Treatments</h3>
+        <p>Relaxing facials, massages, and rejuvenating therapies</p>
+        <div class="service-price">From ₹700</div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">💅</div>
+        <h3>Nail Care</h3>
+        <p>Manicures, pedicures, and nail art in a serene setting</p>
+        <div class="service-price">From ₹400</div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">🧴</div>
+        <h3>Hair Treatment</h3>
+        <p>Deep conditioning and repair treatments for healthy hair</p>
+        <div class="service-price">From ₹600</div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">💄</div>
+        <h3>Makeup Application</h3>
+        <p>Professional makeup for events and everyday looks</p>
+        <div class="service-price">From ₹650</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Us</h2>
+    <div class="about">
+      <div class="about-content">
+        <h3>Your Beauty Destination</h3>
+        <p>At Elegance Salon, we believe beauty is not just about appearance—it's about feeling confident and cared for. Our team of experienced stylists and therapists are dedicated to creating a welcoming sanctuary where you can relax and rejuvenate.</p>
+        <p>With over 15 years of experience, we use only the finest products and techniques to ensure you leave our salon feeling your absolute best. Every client is unique, and we tailor our services to match your individual needs and style.</p>
+      </div>
+      <div class="about-image">✨</div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Book Your Appointment</h2>
+    <div class="contact-form">
+      <form onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="service">Service</label>
+          <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            <option value="haircut">Haircut & Styling</option>
+            <option value="color">Hair Coloring</option>
+            <option value="spa">Spa Treatments</option>
+            <option value="nails">Nail Care</option>
+            <option value="treatment">Hair Treatment</option>
+            <option value="makeup">Makeup Application</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="date">Preferred Date</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Special Requests</label>
+          <textarea id="message" name="message" rows="4" placeholder="Any special requests or notes..."></textarea>
+        </div>
+        
+        <button type="submit" class="form-submit">Confirm Booking</button>
+      </form>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <p>&copy; 2024 Elegance Salon. All rights reserved.</p>
+  <p>📍 Bengaluru | 📞 +91 98765 43210 | 📧 hello@elegancesalon.com</p>
+  <p style="margin-top: 1rem; opacity: 0.8;">Designed with ❤️ for your beauty</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
